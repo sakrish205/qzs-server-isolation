@@ -1,0 +1,25 @@
+# MATLAB / Octave
+*.asv
+*.m~
+*.fig
+.git/
+
+# LaTeX
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.blg
+*.bbl
+*.fdb_latexmk
+*.fls
+*.run.xml
+*.bcf
+
+# System / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+.gemini/
