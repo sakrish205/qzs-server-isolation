@@ -28,3 +28,6 @@ Thumbs.db
 mds/
 latex/
 raw_doc/
+
+# Exclude VIVA Defense Guide
+defense_prep.md

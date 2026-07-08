@@ -40,12 +40,4 @@ Execute the animation script:
 ```matlab
 carrella_live_animation
 ```
-
 ---
-
-## 🎓 Defense Preparation
-Refer to **[`defense_prep.md`](defense_prep.md)** in the root folder for a comprehensive VIVA defense panel guide detailing:
-- Mathematical origin of negative stiffness.
-- Derivation of the mass-invariant property.
-- Discussion on damping leakage and optimization.
-- Stability boundary limits and snap-through bifurcation thresholds.
