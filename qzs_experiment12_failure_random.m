@@ -1,7 +1,7 @@
-% carrella_experiment12_failure_random.m
+% qzs_experiment12_failure_random.m
 % Generates Figure 19: QZS Snap-Through Failure Limits and PSD Performance
 clear; close all;
-run('carrella_style_header.m');
+run('qzs_style_header.m');
 
 % 1. Sweeping Ground Acceleration for Snap-Through Bifurcation
 pga_vals = linspace(0.1, 3.0, 15); % PGA values in g's
@@ -97,5 +97,5 @@ xlim([2, 100]);
 ylim([-90, -10]);
 
 % Save result
-print_fig('results/carrella_exp12_failure_random.png');
+print_fig('results/qzs_exp12_failure_random.png');
 fprintf('Experiment 12: Failure limit and PSD completed successfully.\n');

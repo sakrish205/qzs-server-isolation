@@ -1,7 +1,7 @@
-% carrella_experiment7_time_history.m
+% qzs_experiment7_time_history.m
 % Generates Figure 16 (Time-History Response Plot for a 30s Seismic Event)
 clear; close all;
-run('carrella_style_header.m');
+run('qzs_style_header.m');
 
 % 1. System Parameters (Loaded from parameters.m)
 % For a single isolator supporting 1/4 of a 100 kg rack:
@@ -65,5 +65,5 @@ xlim([0, 30]);
 ylim([-15, 15]);
 
 % Save result using print_fig
-print_fig('results/carrella_exp7_time_history.png');
+print_fig('results/qzs_exp7_time_history.png');
 fprintf('Figure 16 transient time-history response generated successfully.\n');

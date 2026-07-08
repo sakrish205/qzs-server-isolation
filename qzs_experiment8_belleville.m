@@ -1,5 +1,5 @@
 clear; clc; close all;
-run('carrella_style_header.m');
+run('qzs_style_header.m');
 % 1. Washer Geometry (Smaller size for 100kg load)
 De = 40;        % Outer diameter (mm)
 Di = 20;        % Inner diameter (mm)
@@ -65,5 +65,5 @@ legend('Location', 'eastoutside');
 axis([0, 10, 0, 1500]);
 
 % Save Result
-print_fig('results/carrella_exp8_belleville.png');
-fprintf('\nExperiment 8 completed. Plot saved to results/carrella_exp8_belleville.png\n');
+print_fig('results/qzs_exp8_belleville.png');
+fprintf('\nExperiment 8 completed. Plot saved to results/qzs_exp8_belleville.png\n');

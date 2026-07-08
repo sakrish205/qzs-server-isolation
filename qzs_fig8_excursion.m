@@ -33,5 +33,5 @@ xlabel('\gamma_{QZS}','FontSize',14); ylabel('\hat{\delta}','FontSize',14);
 title('Excursion from equilibrium (Carrella Fig. 8)','FontSize',13);
 legend('Location', 'eastoutside'); grid on;
 xlim([0 1]); set(gca,'FontSize',12);
-print_fig('results/carrella_fig8_excursion.png');
+print_fig('results/qzs_fig8_excursion.png');
 fprintf('carrella_figure 8 saved to results/\n');

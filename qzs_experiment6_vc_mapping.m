@@ -1,10 +1,10 @@
 % =====================================================================
-% carrella_experiment6_vc_mapping.m
+% qzs_experiment6_vc_mapping.m
 % Experiment 6: VC Criteria Mapping (BBN Gordon 1999)
 % Purpose: Map velocity response against international benchmarks.
 % =====================================================================
 clear; clc; close all;
-run('carrella_style_header.m');
+run('qzs_style_header.m');
 
 % 1. Frequency Range
 freqs = logspace(log10(1), log10(100), 200);
@@ -58,5 +58,5 @@ ylim([1, 1000]);
 legend('Location', 'eastoutside');
 
 % Save Result
-print_fig('results/carrella_exp6_vc_mapping.png');
+print_fig('results/qzs_exp6_vc_mapping.png');
 fprintf('Experiment 6 completed.\n');

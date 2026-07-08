@@ -27,5 +27,5 @@ xlabel('x_{hat} = x / L_0','Interpreter','tex');
 ylabel('f / (k_o L_0)','Interpreter','tex');
 title(['Force-deflection: oblique springs only (\gamma sweep)'], 'Interpreter', 'tex');
 legend('Location', 'eastoutside'); grid on;
-print_fig('results/carrella_fig3_oblique_force.png');
+print_fig('results/qzs_fig3_oblique_force.png');
 fprintf('carrella_figure 3 saved to results/\n');

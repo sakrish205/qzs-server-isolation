@@ -1,7 +1,7 @@
-% carrella_fig2_vector.m
+% qzs_fig2_vector.m
 % Generates Figure 2: Vector Geometry and Variable Definition of the QZS System
 clear; close all;
-run('carrella_style_header.m');
+run('qzs_style_header.m');
 
 % Figure setup
 figure;
@@ -63,5 +63,5 @@ axis off;
 title('Figure 2: Vector Geometry and Variable Definition of the QZS System', 'FontSize', 20, 'FontWeight', 'bold');
 
 % Save result using print_fig
-print_fig('results/carrella_fig2_vector.png');
+print_fig('results/qzs_fig2_vector.png');
 fprintf('Figure 2 vector schematic generated successfully.\n');

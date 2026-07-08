@@ -1,9 +1,9 @@
 % =====================================================================
-% carrella_experiment4_transmissibility.m
+% qzs_experiment4_transmissibility.m
 % Experiment 4: Dynamic Transmissibility Analysis (Analytical)
 % =====================================================================
 clear; clc; close all;
-run('carrella_style_header.m');
+run('qzs_style_header.m');
 
 % 1. System Parameters (Loaded via parameters.m)
 % Using target_rack_mass = 100 kg, zeta, and fn values from parameters.m
@@ -44,5 +44,5 @@ xlim([0.1, 50]); ylim([1e-6, 50]);
 legend('Location', 'eastoutside');
 
 % Save Result
-print_fig('results/carrella_exp4_transmissibility.png');
+print_fig('results/qzs_exp4_transmissibility.png');
 fprintf('Experiment 4 completed.\n');

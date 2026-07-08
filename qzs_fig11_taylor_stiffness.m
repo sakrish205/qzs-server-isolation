@@ -45,5 +45,5 @@ ylabel('\hat{K}', 'FontSize', 14);
 title(['Stiffness with Taylor expansions, \gamma=' num2str(g,'%.3f') ', \alpha=' num2str(a,'%.3f') ' (Carrella Fig. 11)'], 'FontSize', 13);
 legend('Location', 'eastoutside'); grid on;
 xlim([-0.3 0.3]); ylim([0 1.2]); set(gca, 'FontSize', 12);
-print_fig('results/carrella_fig11_taylor_stiffness.png');
+print_fig('results/qzs_fig11_taylor_stiffness.png');
 fprintf('carrella_figure 11 saved to results/\n');

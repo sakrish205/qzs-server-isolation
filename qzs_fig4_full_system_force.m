@@ -34,5 +34,5 @@ xlabel('x_{hat} = x / L_0','Interpreter','tex');
 ylabel('f_{hat} = f / (k_v L_0)','Interpreter','tex');
 title(['Force-displacement: \alpha = ' num2str(alpha_plot) ' (Carrella Fig. 4)'], 'Interpreter', 'tex');
 legend('Location', 'eastoutside'); grid on;
-print_fig('results/carrella_fig4_full_system_force.png');
+print_fig('results/qzs_fig4_full_system_force.png');
 fprintf('carrella_figure 4 saved to results/\n');

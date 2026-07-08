@@ -1,7 +1,7 @@
-% carrella_experiment11_damping.m
+% qzs_experiment11_damping.m
 % Generates Figure 18: Damping Optimization & Transmissibility Waterfall
 clear; close all;
-run('carrella_style_header.m');
+run('qzs_style_header.m');
 
 % Parameters
 m = 25;                  % Mass (kg)
@@ -44,5 +44,5 @@ xlim([0, 5]);
 ylim([-40, 20]);
 
 % Save result
-print_fig('results/carrella_exp11_damping.png');
+print_fig('results/qzs_exp11_damping.png');
 fprintf('Experiment 11: Damping optimization completed successfully.\n');

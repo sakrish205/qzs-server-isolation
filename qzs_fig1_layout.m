@@ -1,7 +1,7 @@
-% carrella_fig1_layout.m
+% qzs_fig1_layout.m
 % Generates Figure 1: Mechanical Layout Visualization of the QZS Mechanism
 clear; close all;
-run('carrella_style_header.m');
+run('qzs_style_header.m');
 
 % Figure setup
 figure;
@@ -111,5 +111,5 @@ axis off;
 title('Figure 1: Mechanical Layout Visualization of the QZS Mechanism', 'FontSize', 20, 'FontWeight', 'bold');
 
 % Save result using print_fig
-print_fig('results/carrella_fig1_layout.png');
+print_fig('results/qzs_fig1_layout.png');
 fprintf('Figure 1 layout schematic generated successfully.\n');

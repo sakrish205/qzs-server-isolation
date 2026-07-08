@@ -44,5 +44,5 @@ ylabel('Error (%)','FontSize',14);
 legend('Location', 'eastoutside');
 title('Error in cubic stiffness approximation (Carrella Fig. 12)','FontSize',13);
 grid on; xlim([0 1]); set(gca,'FontSize',12);
-print_fig('results/carrella_fig12_approx_error.png');
+print_fig('results/qzs_fig12_approx_error.png');
 fprintf('carrella_figure 12 saved to results/\n');

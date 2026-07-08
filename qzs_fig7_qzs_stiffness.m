@@ -31,5 +31,5 @@ xlabel('\hat{y}','FontSize',14); ylabel('\hat{K}_{QZS}','FontSize',14);
 title('Stiffness for QZS combos (Carrella Fig. 7)','FontSize',13);
 legend('Location', 'eastoutside'); grid on;
 xlim([-0.5 0.5]); ylim([-2 6]); set(gca,'FontSize',12);
-print_fig('results/carrella_fig7_qzs_stiffness.png');
+print_fig('results/qzs_fig7_qzs_stiffness.png');
 fprintf('carrella_figure 7 saved to results/\n');

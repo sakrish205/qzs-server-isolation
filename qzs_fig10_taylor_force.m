@@ -53,5 +53,5 @@ ylabel('\hat{F}', 'FontSize', 14);
 title(['Force with Taylor expansions, \gamma=' num2str(g,'%.3f') ', \alpha=' num2str(a,'%.3f') ' (Carrella Fig. 10)'], 'FontSize', 13);
 legend('Location', 'eastoutside'); grid on;
 xlim([-0.3 0.3]); ylim([-0.2 0.2]); set(gca, 'FontSize', 12);
-print_fig('results/carrella_fig10_taylor_force.png');
+print_fig('results/qzs_fig10_taylor_force.png');
 fprintf('carrella_figure 10 saved to results/\n');

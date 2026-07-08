@@ -16,8 +16,8 @@ This project implements a **High-Static-Low-Dynamic-Stiffness (HSLDS)** passive 
 
 ## ⚡ Main Scripts & Suite Structure
 - **`run_complete_suite.m`**: The master control script. Generates and saves all 20 figures (reproduction of seminal Carrella 2007 paper curves + advanced dynamic experiments) in one click.
-- **`carrella_live_animation.m`**: Real-time "Digital Twin" simulation showing the physical response of springs and rack alongside scrolling displacement graphs under harmonic base excitation.
-- **`carrella_validation.m`**: Validation suite to verify all numerical targets against analytical limits. (Generates `results/carrella_validation_report.md` confirming a 100% PASS rate).
+- **`qzs_live_animation.m`**: Real-time "Digital Twin" simulation showing the physical response of springs and rack alongside scrolling displacement graphs under harmonic base excitation.
+- **`qzs_validation.m`**: Validation suite to verify all numerical targets against analytical limits. (Generates `results/qzs_validation_report.md` confirming a 100% PASS rate).
 - **`parameters.m`**: Unified configuration file for global design variables, payload masses, and plot styling standardizations.
 - **`print_fig.m`**: Screen-capture export utility featuring automatic black-frame and glitch detection for high-fidelity PNG prints.
 
@@ -38,6 +38,6 @@ All generated high-resolution figures are saved directly to the `results/` folde
 ### Run Live Digital Twin Animation:
 Execute the animation script:
 ```matlab
-carrella_live_animation
+qzs_live_animation
 ```
 ---

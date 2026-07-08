@@ -1,5 +1,5 @@
 % =====================================================================
-% carrella_validation.m
+% qzs_validation.m
 % Unified Validation Suite for QZS Vibration Isolator
 % Executes analytical validation against Carrella (2007)
 % Outputs a highly formatted markdown report to the results folder.
@@ -9,7 +9,7 @@ run('parameters.m');
 
 fprintf('\nExecuting Unified Master Validation Suite...\n');
 
-md_file = fullfile('results', 'carrella_validation_report.md');
+md_file = fullfile('results', 'qzs_validation_report.md');
 fid = fopen(md_file, 'w');
 
 fprintf(fid, '# Mathematical Validation & Verification Report\n\n');
@@ -92,4 +92,4 @@ fprintf(fid, '| **Taylor Error ($K_o=0.5$)** | $\\approx 14$\\%% | `%.2f\\%%` | 
 fprintf(fid, '\n---\n*Validation complete. The generated data matches the exact claims published in the Carrella (2007) paper.*\n');
 
 fclose(fid);
-fprintf('Validation successfully completed! Master report written to results/carrella_validation_report.md\n');
+fprintf('Validation successfully completed! Master report written to results/qzs_validation_report.md\n');

@@ -22,5 +22,5 @@ legend('QZS condition (Eq. 11)', ...
        ['Current Design: \gamma = ' num2str(gamma,'%.3f')], ...
        'Location', 'eastoutside','FontSize',12);
 grid on; xlim([0 1]); ylim([0.01 100]); set(gca,'FontSize',12);
-print_fig('results/carrella_fig6_qzs_combinations.png');
+print_fig('results/qzs_fig6_qzs_combinations.png');
 fprintf('carrella_figure 6 saved to results/\n');

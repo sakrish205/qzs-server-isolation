@@ -1,11 +1,11 @@
 
 % =====================================================================
-% carrella_experiment5_seismic.m
+% qzs_experiment5_seismic.m
 % Experiment 5: IS 1893 Seismic Response Analysis
 % Purpose: Verify protection under Indian Seismic Standard Zone III.
 % =====================================================================
 clear; clc; close all;
-run('carrella_style_header.m');
+run('qzs_style_header.m');
 
 % 1. IS 1893 Part 1 (2016) Parameters
 Z = 0.16;       % Zone Factor (Zone III)
@@ -66,5 +66,5 @@ legend('Location', 'eastoutside');
 axis([1, 33, 0, 2.5]); % Forced at end to prevent clipping
 
 % Save Result
-print_fig('results/carrella_exp5_seismic.png');
+print_fig('results/qzs_exp5_seismic.png');
 fprintf('Experiment 5 completed.\n');

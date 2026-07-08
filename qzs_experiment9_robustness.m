@@ -1,7 +1,7 @@
-% carrella_experiment9_robustness.m
+% qzs_experiment9_robustness.m
 % Generates Figure 17: Robustness Sensitivity Manifold (Heatmap)
 clear; close all;
-run('carrella_style_header.m');
+run('qzs_style_header.m');
 
 % 1. Sweeping Grid Parameters
 mass_arr = linspace(80, 120, 21);    % Total payload mass (kg), sweeps +-20% of 100 kg
@@ -61,5 +61,5 @@ ylabel('Total Payload Mass (kg)', 'Interpreter', 'tex');
 grid on;
 
 % Save result using print_fig
-print_fig('results/carrella_exp9_robustness.png');
+print_fig('results/qzs_exp9_robustness.png');
 fprintf('Figure 17 robustness heatmap generated successfully.\n');

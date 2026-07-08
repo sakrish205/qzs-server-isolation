@@ -24,31 +24,31 @@ if ~exist('results', 'dir'); mkdir('results'); end
 
 % 1. Paper Figures (Carrella 2007)
 fprintf('\n--- Generating Paper Figures 1-12 ---\n');
-run('carrella_fig1_layout.m'); close all;
-run('carrella_fig2_vector.m'); close all;
-run('carrella_fig3_oblique_force.m'); close all;
-run('carrella_fig4_full_system_force.m'); close all;
-run('carrella_fig5_stiffness.m'); close all;
-run('carrella_fig6_qzs_combinations.m'); close all;
-run('carrella_fig7_qzs_stiffness.m'); close all;
-run('carrella_fig8_excursion.m'); close all;
-run('carrella_fig9_max_excursion.m'); close all;
-run('carrella_fig10_taylor_force.m'); close all;
-run('carrella_fig11_taylor_stiffness.m'); close all;
-run('carrella_fig12_approx_error.m'); close all;
+run('qzs_fig1_layout.m'); close all;
+run('qzs_fig2_vector.m'); close all;
+run('qzs_fig3_oblique_force.m'); close all;
+run('qzs_fig4_full_system_force.m'); close all;
+run('qzs_fig5_stiffness.m'); close all;
+run('qzs_fig6_qzs_combinations.m'); close all;
+run('qzs_fig7_qzs_stiffness.m'); close all;
+run('qzs_fig8_excursion.m'); close all;
+run('qzs_fig9_max_excursion.m'); close all;
+run('qzs_fig10_taylor_force.m'); close all;
+run('qzs_fig11_taylor_stiffness.m'); close all;
+run('qzs_fig12_approx_error.m'); close all;
 
 % 2. Engineering Experiments (Novelty Benchmarks)
 fprintf('\n--- Generating Engineering Benchmark Figures ---\n');
-run('carrella_experiment3_scaling.m'); close all;
-run('carrella_experiment4_transmissibility.m'); close all;
-run('carrella_experiment5_seismic.m'); close all;
-run('carrella_experiment6_vc_mapping.m'); close all;
-run('carrella_experiment7_time_history.m'); close all;
-run('carrella_experiment8_belleville.m'); close all;
-run('carrella_experiment9_robustness.m'); close all;
-run('carrella_experiment11_damping.m'); close all;
-run('carrella_experiment12_failure_random.m'); close all;
-run('carrella_live_animation.m'); close all;
+run('qzs_experiment3_scaling.m'); close all;
+run('qzs_experiment4_transmissibility.m'); close all;
+run('qzs_experiment5_seismic.m'); close all;
+run('qzs_experiment6_vc_mapping.m'); close all;
+run('qzs_experiment7_time_history.m'); close all;
+run('qzs_experiment8_belleville.m'); close all;
+run('qzs_experiment9_robustness.m'); close all;
+run('qzs_experiment11_damping.m'); close all;
+run('qzs_experiment12_failure_random.m'); close all;
+run('qzs_live_animation.m'); close all;
 
 fprintf('\n=== Full Suite Execution Complete ===\n');
 fprintf('All high-resolution figures saved to results/ folder.\n');

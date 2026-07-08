@@ -44,5 +44,5 @@ xlabel('y_{hat} = x_{hat} - x_{e,hat}','Interpreter','tex');
 ylabel('K_{hat} = K / k_v','Interpreter','tex');
 title(['Non-dimensional stiffness, \alpha = ' num2str(alpha_plot) ' (Carrella Fig. 5)'], 'Interpreter', 'tex');
 legend('Location', 'eastoutside'); grid on;
-print_fig('results/carrella_fig5_stiffness.png');
+print_fig('results/qzs_fig5_stiffness.png');
 fprintf('carrella_figure 5 saved to results/\n');

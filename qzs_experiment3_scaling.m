@@ -1,10 +1,10 @@
 % =====================================================================
-% carrella_experiment3_scaling.m
+% qzs_experiment3_scaling.m
 % Experiment 3: Static Parametric Study - Natural Frequency Scaling
 % Purpose: Scale QZS theory for 50kg, 100kg, and 150kg server racks.
 % =====================================================================
 clear; clc; close all;
-run('carrella_style_header.m');
+run('qzs_style_header.m');
 
 % 1. Design Point (from Carrella 2007 via parameters.m)
 gamma_design = gamma;     % Optimal geometry
@@ -75,4 +75,4 @@ ylim([0, 12]);
 plot(gamma_design, 0, 'kp', 'MarkerSize', 15, 'MarkerFaceColor', 'y', 'DisplayName', 'Optimal QZS Point');
 
 % 6. Save Result
-print_fig('results/carrella_exp3_scaling.png');
+print_fig('results/qzs_exp3_scaling.png');

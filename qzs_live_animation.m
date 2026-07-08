@@ -1,7 +1,7 @@
-% carrella_live_animation.m
+% qzs_live_animation.m
 % Dynamic Digital Twin Real-Time Animation for QZS Vibration Isolator
 clear; close all;
-run('carrella_style_header.m');
+run('qzs_style_header.m');
 
 % Simulation Parameters
 m = 25;                  % Mass (kg)
@@ -201,8 +201,8 @@ for i = 1:length(t_out)
     if ~has_display
         % In headless terminal, compile just the final frame and exit
         if i == length(t_out)
-            print_fig('results/carrella_live_animation.png');
-            fprintf('Headless environment: Final frame saved to results/carrella_live_animation.png\n');
+            print_fig('results/qzs_live_animation.png');
+            fprintf('Headless environment: Final frame saved to results/qzs_live_animation.png\n');
         end
     else
         drawnow;
@@ -211,6 +211,6 @@ for i = 1:length(t_out)
 end
 
 if has_display
-    print_fig('results/carrella_live_animation.png');
-    fprintf('Animation finished. Saved final frame to results/carrella_live_animation.png\n');
+    print_fig('results/qzs_live_animation.png');
+    fprintf('Animation finished. Saved final frame to results/qzs_live_animation.png\n');
 end

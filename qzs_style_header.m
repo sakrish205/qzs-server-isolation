@@ -1,5 +1,5 @@
 % =====================================================================
-% carrella_style_header.m
+% qzs_style_header.m
 % Global styling for Elsevier-standard publication figures
 % Adjusted for EastOutside legends as requested by the user.
 % =====================================================================

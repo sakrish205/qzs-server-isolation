@@ -43,5 +43,5 @@ xlabel('\hat{K}_o','FontSize',14); ylabel('\hat{\delta}_{max}','FontSize',14);
 title('Maximum excursion from equilibrium (Carrella Fig. 9)','FontSize',13);
 legend('Location', 'eastoutside'); grid on;
 xlim([0 1]); set(gca,'FontSize',12);
-print_fig('results/carrella_fig9_max_excursion.png');
+print_fig('results/qzs_fig9_max_excursion.png');
 fprintf('carrella_figure 9 saved to results/\n');

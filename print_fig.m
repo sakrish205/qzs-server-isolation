@@ -2,7 +2,7 @@ function print_fig(filename)
     % print_fig - Saves the current figure with perfect font visibility, legends, and enlarged legend size.
     % Resizes the screen window to match reference proportions, applies font styling,
     % increases legend font sizes by 1.5x, and uses 'auto' PaperPositionMode for clean scaling.
-    % Usage: print_fig('results/carrella_exp3_scaling.png')
+    % Usage: print_fig('results/qzs_exp3_scaling.png')
 
     fig = gcf;
 
