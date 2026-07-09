@@ -27,7 +27,7 @@ results_table = [];
 for i = 1:length(rack_masses)
     m = rack_masses(i);
     k_req = kv_target_nmm(i);
-    k_single = ( (4*E) / (1-nu^2) ) * ( (t^3) / (K1*De^2) ) * ( (h/t)^2 + 1 );
+    k_single = ( (4*E) / (1-nu^2) ) * ( t^3 / (K1*(De^2)) ) * ( (h/t)^2 + 1 );
     n_p = 1;
     n_s = round(k_single / k_req);
     fprintf('%-10d | %-12.2f | %-10d | %-10d | %-10d\n', m, k_req, n_s, n_p, n_s*n_p);

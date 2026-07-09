@@ -4,6 +4,7 @@
 % Purpose: Scale QZS theory for 50kg, 100kg, and 150kg server racks.
 % =====================================================================
 clear; clc; close all;
+run('parameters.m');        % Loads: rack_masses, g_accel, delta_static, gamma, alpha
 run('qzs_style_header.m');
 
 % 1. Design Point (from Carrella 2007 via parameters.m)

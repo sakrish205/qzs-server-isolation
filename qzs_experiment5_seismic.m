@@ -29,8 +29,8 @@ for i = 1:length(Periods)
     end
 end
 
-% Base Acceleration (g) - IS 1893 Design Spectrum (DBE)
-PGA_design = (Z * I) / 2;  % Design Basis Earthquake (DBE) intensity (0.12g)
+% Base Acceleration (g) — IS 1893 Zone III, MCE intensity (matches paper abstract)
+PGA_design = Z * I;        % Maximum Considered Earthquake (MCE) = 0.24g
 A_base = Sag * PGA_design; % Resulting base acceleration spectrum in g
 
 % 2. Isolator Transmissibility (Analytical simplified for speed)

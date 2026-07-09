@@ -43,6 +43,10 @@ legend('Location', 'eastoutside');
 xlim([0, 5]);
 ylim([-40, 20]);
 
+% Optimal damping annotation
+text(0.75, -5, 'Optimal: \zeta = 0.05', 'Color', 'g', 'FontSize', 12, ...
+    'FontWeight', 'bold', 'Interpreter', 'tex');
+
 % Save result
 print_fig('results/qzs_exp11_damping.png');
 fprintf('Experiment 11: Damping optimization completed successfully.\n');

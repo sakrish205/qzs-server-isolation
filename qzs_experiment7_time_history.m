@@ -62,7 +62,12 @@ xlabel('Time (s)', 'Interpreter', 'tex');
 ylabel('Displacement (mm)', 'Interpreter', 'tex');
 legend('Location', 'eastoutside');
 xlim([0, 30]);
-ylim([-15, 15]);
+ylim([-22, 22]);
+
+% Safe excursion limit lines (±18.5 mm — negative-stiffness bifurcation boundary)
+plot([0, 30], [ 18.5,  18.5], 'k--', 'LineWidth', lw_thin, 'HandleVisibility', 'off');
+plot([0, 30], [-18.5, -18.5], 'k--', 'LineWidth', lw_thin, 'HandleVisibility', 'off');
+text(1, 19.5, 'Safe Excursion Limit \pm18.5 mm', 'Color', 'k', 'FontSize', 10, 'Interpreter', 'tex');
 
 % Save result using print_fig
 print_fig('results/qzs_exp7_time_history.png');

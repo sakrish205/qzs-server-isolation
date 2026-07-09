@@ -11,8 +11,10 @@ freqs = logspace(log10(1), log10(100), 200);
 
 % 2. System Parameters (Consistent with Exp 4/5, loaded from parameters.m)
 
-% Base acceleration (assume 0.1g flat for sensitivity analysis)
-A_base_g = 0.1 * ones(size(freqs)); 
+% Base acceleration — IS 1893 Zone III MCE (consistent with Exp 5: Z*I = 0.24g)
+Z = 0.16; I = 1.5;
+PGA_design = Z * I;                        % = 0.24g MCE
+A_base_g = PGA_design * ones(size(freqs)); % Flat spectrum for VC sensitivity analysis
 
 % Transmissibility
 r_rubber = freqs ./ fn_rubber;

@@ -39,7 +39,7 @@ t_rand = 0:1/fs:10;
 ag_rand = zeros(size(t_rand));
 num_freqs = 30;
 freqs = linspace(10, 50, num_freqs);
-rand('state', 42); % Seed for reproducible random phases in Octave
+rng(42); % Reproducible random phases — replaces deprecated rand('state',42)
 for k = 1:num_freqs
     phi = 2 * pi * rand();
     ag_rand = ag_rand + 0.15 * sin(2 * pi * freqs(k) * t_rand + phi);
@@ -93,7 +93,7 @@ title('Figure 19b: Power Spectral Density (PSD) Random Vibration Attenuation', '
 xlabel('Frequency (Hz)', 'Interpreter', 'tex');
 ylabel('Power Spectral Density (dB/Hz)', 'Interpreter', 'tex');
 legend('Location', 'northeast');
-xlim([2, 100]);
+xlim([0.1, 100]); % Start at 0.1 Hz to show QZS resonance at ~0.5 Hz
 ylim([-90, -10]);
 
 % Save result

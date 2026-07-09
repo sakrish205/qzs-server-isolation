@@ -38,7 +38,8 @@ for i = 1:length(Ko_range)
 end
 
 figure;
-plot(Ko_range, error_pct, 'b-', 'LineWidth', lw_thick, 'DisplayName', 'Cubic approximation error');
+plot(Ko_range, error_pct, 'b-', 'LineWidth', lw_thick, ...
+    'DisplayName', 'Cubic approximation error (Eq. 30)');
 xlabel('\hat{K}_o','FontSize',14);
 ylabel('Error (%)','FontSize',14);
 legend('Location', 'eastoutside');
