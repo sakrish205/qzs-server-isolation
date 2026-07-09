@@ -31,3 +31,6 @@ raw_doc/
 
 # Exclude VIVA Defense Guide
 defense_prep.md
+
+# Auto-generated results (regenerated on every octave run — do not track)
+results/qzs_validation_report.md
