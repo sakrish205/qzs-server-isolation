@@ -10,15 +10,23 @@ function print_fig(filename)
     set(findall(fig, '-property', 'FontName'), 'FontName', 'Times New Roman');
 
     % Prevent titles and labels from clipping by increasing margins
+    % Also scale the Title FontSize by 1.5x as requested
     all_axes = findobj(fig, 'Type', 'axes');
     for k = 1:length(all_axes)
         try
             inset = get(all_axes(k), 'LooseInset');
-            % Increase top margin (4th component) from 0.075 to 0.18 to prevent header clipping
-            inset(4) = 0.18;
+            % Increase top margin (4th component) from 0.075 to 0.22 to prevent header clipping
+            inset(4) = 0.22;
             % Increase bottom margin (2nd component) from 0.11 to 0.14 for x-labels
             inset(2) = 0.14;
             set(all_axes(k), 'LooseInset', inset);
+            
+            % Retrieve and scale title font size
+            t_obj = get(all_axes(k), 'Title');
+            if ~isempty(t_obj)
+                curr_size = get(t_obj, 'FontSize');
+                set(t_obj, 'FontSize', round(curr_size * 1.5));
+            end
         catch
         end
     end
