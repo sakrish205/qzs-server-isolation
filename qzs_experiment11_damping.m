@@ -41,7 +41,7 @@ xlabel('Excitation Frequency (Hz)', 'Interpreter', 'tex');
 ylabel('Transmissibility (dB)', 'Interpreter', 'tex');
 legend('Location', 'eastoutside');
 xlim([0, 5]);
-ylim([-40, 20]);
+ylim([-40, 40]);
 
 % Optimal damping annotation
 text(0.75, -5, 'Optimal: \zeta = 0.05', 'Color', 'g', 'FontSize', 12, ...

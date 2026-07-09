@@ -69,7 +69,7 @@ title(['Experiment 5: IS 1893 Seismic Response (Zone III, Medium Soil Type II)',
 xlabel('Frequency (Hz)', 'Interpreter', 'tex');
 ylabel('Absolute Acceleration (g)', 'Interpreter', 'tex');
 legend('Location', 'eastoutside');
-axis([1, 33, 0, 2.5]); % Forced at end to prevent clipping
+axis([1, 33, 0, 5.0]); % Forced at end to prevent clipping
 
 % Save Result
 print_fig('results/qzs_exp5_seismic.png');
