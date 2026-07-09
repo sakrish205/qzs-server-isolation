@@ -67,13 +67,21 @@ axis tight;
 ylabel('System Natural Frequency f_n (Hz)', 'Interpreter', 'tex');
 % Mass-invariant property: fn = sqrt(kv*K_nd/m)
 % Since kv = m*g/delta, fn = sqrt(g*K_nd/delta) — independent of m
-% Proven analytically by Wang et al. 2020
+% Proven analytically by Wang et al. 2018
 legend('Location', 'eastoutside');
 xlim([0.4, 0.9]);
 ylim([0, 12]);
 
 % Annotate QZS Point
 plot(gamma_design, 0, 'kp', 'MarkerSize', 15, 'MarkerFaceColor', 'y', 'DisplayName', 'Optimal QZS Point');
+
+% On-figure annotation: mass-invariant property (Wang et al. 2018)
+text(0.56, 10.5, {'Mass-invariant property:', ...
+    'f_n = \surd(g_{accel} \cdot K_{nd} / \delta_{st}) - independent of m', ...
+    '(Wang et al. 2018)'}, ...
+    'Interpreter', 'tex', 'FontSize', 9, 'Color', [0.2 0.2 0.2], ...
+    'BackgroundColor', [0.97 0.97 0.97], 'EdgeColor', [0.6 0.6 0.6], ...
+    'Margin', 4);
 
 % 6. Save Result
 print_fig('results/qzs_exp3_scaling.png');

@@ -49,6 +49,8 @@ loglog([1, 100], [12.5, 12.5], '-.k', 'LineWidth', lw_thin, 'HandleVisibility', 
 text(1.2, 14, 'VC-C (12.5 \mum/s)', 'Interpreter', 'tex');
 loglog([1, 100], [6.25, 6.25], ':k', 'LineWidth', lw_thin, 'HandleVisibility', 'off');
 text(1.2, 7, 'VC-D (6.25 \mum/s)', 'Interpreter', 'tex');
+loglog([1, 100], [1.56, 1.56], '--k', 'LineWidth', lw_thin, 'HandleVisibility', 'off');
+text(1.2, 1.8, 'VC-E (1.56 \mum/s)', 'Interpreter', 'tex');
 
 % Format Plot
 title('Experiment 6: Vibration Criterion (VC) Mapping', 'Interpreter', 'tex');

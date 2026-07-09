@@ -44,14 +44,20 @@ T_qzs = sqrt( (1 + (2*zeta_qzs*r_qzs).^2) ./ ((1-r_qzs.^2).^2 + (2*zeta_qzs*r_qz
 
 % 3. Rack Response (g)
 A_rubber = A_base .* T_rubber;
-A_qzs = A_base .* T_qzs;
+A_qzs   = A_base .* T_qzs;
+
+% Pneumatic mount (three-way comparison)
+r_pneu = freqs ./ fn_pneu;
+T_pneu = sqrt( (1 + (2*zeta_pneu*r_pneu).^2) ./ ((1-r_pneu.^2).^2 + (2*zeta_pneu*r_pneu).^2) );
+A_pneu = A_base .* T_pneu;
 
 % 4. Visualization
 figure;
 plot(freqs, A_base, 'k', 'LineWidth', lw_thin, 'DisplayName', 'IS 1893 Input Spectrum');
 hold on; grid on;
 plot(freqs, A_rubber, 'r--', 'LineWidth', lw_medium, 'DisplayName', 'Rubber Mount Response');
-plot(freqs, A_qzs, 'b', 'LineWidth', lw_thick, 'DisplayName', 'QZS Isolator Response');
+plot(freqs, A_pneu,   'g-.', 'LineWidth', lw_medium, 'DisplayName', 'Pneumatic Mount Response');
+plot(freqs, A_qzs,   'b',   'LineWidth', lw_thick,  'DisplayName', 'QZS Isolator Response');
 
 % Damage Threshold (Manual line for Octave stability)
 plot([1, 33], [0.5, 0.5], ':r', 'LineWidth', lw_thin, 'HandleVisibility', 'off');

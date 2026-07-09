@@ -10,10 +10,15 @@ run('parameters.m');
 % 1. Typography & Font Sizes
 set(0, 'DefaultTextFontName', 'Times New Roman');
 set(0, 'DefaultAxesFontName', 'Times New Roman');
-set(0, 'DefaultAxesFontSize', 10);
-set(0, 'DefaultTextFontSize', 10);
+set(0, 'DefaultAxesFontSize', 18);
+set(0, 'DefaultTextFontSize', 18);
 set(0, 'DefaultTextInterpreter', 'tex');
-% set(0, 'DefaultLegendFontSize', 9); % Removed for Octave compatibility
+if ~exist('OCTAVE_VERSION', 'builtin')
+    % MATLAB-only properties; Octave's root graphics object does not support these
+    set(0, 'DefaultAxesLabelFontSizeMultiplier', 1.2);
+    set(0, 'DefaultAxesTitleFontSizeMultiplier', 1.3);
+    set(0, 'DefaultLegendFontSize', 16);
+end
 
 % 2. Line & Element Styling
 set(0, 'DefaultLineLineWidth', lw_default);

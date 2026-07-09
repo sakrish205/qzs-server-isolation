@@ -33,6 +33,13 @@ loglog(freqs, T_qzs, 'b', 'LineWidth', lw_thick, 'DisplayName', sprintf('QZS Iso
 hold on; grid on;
 loglog(freqs, T_rubber, 'r--', 'LineWidth', lw_medium, 'DisplayName', sprintf('Rubber Mount (f_n=%.1fHz)', fn_rubber));
 loglog(freqs, T_pneu, 'g-.', 'LineWidth', lw_medium, 'DisplayName', sprintf('Pneumatic Mount (f_n=%.1fHz)', fn_pneu));
+% IS 1893 Seismic Band shading (1–33 Hz) — must appear before data plots to not obscure them
+patch([1, 33, 33, 1], [1e-6, 1e-6, 50, 50], ...
+    [0.9, 0.9, 0.9], 'FaceAlpha', 0.3, 'EdgeColor', 'none', ...
+    'HandleVisibility', 'off');
+text(3, 0.002, 'IS 1893 Seismic Band (1–33 Hz)', ...
+    'Color', [0.4 0.4 0.4], 'FontSize', 9, 'Interpreter', 'tex');
+
 % Passive Threshold (Manual line for Octave stability)
 loglog([0.1, 50], [1.0, 1.0], 'k:', 'LineWidth', lw_thin, 'HandleVisibility', 'off');
 text(12.0, 1.5, 'Passive Threshold', 'Color', 'k', 'Interpreter', 'tex');
