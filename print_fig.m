@@ -42,10 +42,7 @@ function print_fig(filename)
 
     % Resize on-screen window to guarantee exact output aspect ratio and dimensions
     % at 600 DPI when using PaperPositionMode = 'auto'
-    if is_exp6 || is_exp8
-        % Target: 7200x3600 pixels (aspect ratio 2:1, screen size 864x432)
-        set(fig, 'Position', [100, 100, 864, 432]);
-    elseif is_fig6 || is_fig7 || is_fig8 || is_fig9 || is_fig10 || is_fig11 || is_fig12
+    if is_fig6 || is_fig7 || is_fig8 || is_fig9 || is_fig10 || is_fig11 || is_fig12
         % Target: 14375x7500 pixels (expanded for legends, screen size 1725x900)
         set(fig, 'Position', [100, 100, 1725, 900]);
     else
@@ -69,23 +66,33 @@ function print_fig(filename)
     drawnow;
     pause(0.5);
 
-    % Save using screen capture first to bypass fltk print bugs
-    try
+    % Save using screen capture — retry up to 3 times for FLTK render delay
+    max_attempts = 3;
+    saved = false;
+    for attempt = 1:max_attempts
         drawnow;
-        pause(0.5);
-        frame = getframe(fig);
-        if ~isempty(frame) && isstruct(frame) && isfield(frame, 'cdata') && ~isempty(frame.cdata)
-            % Check if the capture is a black screen or glitch (mean intensity <= 10)
-            if mean(frame.cdata(:)) > 10
-                imwrite(frame.cdata, filename);
-                fprintf('Figure saved successfully using screen capture: %s\n', filename);
-                return;
+        pause(1.0);  % give FLTK time to paint the window completely
+        try
+            frame = getframe(fig);
+            if ~isempty(frame) && isstruct(frame) && isfield(frame, 'cdata') && ~isempty(frame.cdata)
+                % Reject if mean pixel intensity <= 15 (black / near-black screen glitch)
+                if mean(frame.cdata(:)) > 15
+                    imwrite(frame.cdata, filename);
+                    fprintf('Figure saved successfully using screen capture: %s\n', filename);
+                    saved = true;
+                    break;
+                else
+                    fprintf('Black screen detected (attempt %d/%d), retrying...\n', attempt, max_attempts);
+                end
             end
+        catch err
+            fprintf('getframe error (attempt %d/%d): %s\n', attempt, max_attempts, err.message);
         end
-    catch
     end
 
-    % Fallback to standard vector print command
-    print(fig, filename, '-dpng', ['-r', num2str(dpi)]);
-    fprintf('Figure printed successfully using vector export: %s\n', filename);
+    % Fallback to standard vector print command (only if all retries failed)
+    if ~saved
+        print(fig, filename, '-dpng', ['-r', num2str(dpi)]);
+        fprintf('Figure printed successfully using vector export: %s\n', filename);
+    end
 end

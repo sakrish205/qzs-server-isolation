@@ -60,7 +60,7 @@ plot_dpi = 150;
 
 % Global legend font size for figure exports
 global legend_font_size;
-legend_font_size = 12;
+legend_font_size = 24;  % doubled from 12 -- applies to all figures via print_fig
  
 
 % Results directory
