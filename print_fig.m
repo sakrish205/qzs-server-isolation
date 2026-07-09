@@ -9,6 +9,20 @@ function print_fig(filename)
     % Enforce Times New Roman typography for all text elements in the figure
     set(findall(fig, '-property', 'FontName'), 'FontName', 'Times New Roman');
 
+    % Prevent titles and labels from clipping by increasing margins
+    all_axes = findobj(fig, 'Type', 'axes');
+    for k = 1:length(all_axes)
+        try
+            inset = get(all_axes(k), 'LooseInset');
+            % Increase top margin (4th component) from 0.075 to 0.18 to prevent header clipping
+            inset(4) = 0.18;
+            % Increase bottom margin (2nd component) from 0.11 to 0.14 for x-labels
+            inset(2) = 0.14;
+            set(all_axes(k), 'LooseInset', inset);
+        catch
+        end
+    end
+
     % Set legend font sizes using the global legend_font_size configuration (defaults to 12)
     global legend_font_size;
     if isempty(legend_font_size)
