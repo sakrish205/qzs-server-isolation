@@ -23,6 +23,7 @@ Thumbs.db
 .idea/
 .vscode/
 .gemini/
+.agents/
 
 # Exclude Specific Project Documentation Folders
 mds/

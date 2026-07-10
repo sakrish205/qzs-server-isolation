@@ -14,19 +14,24 @@ function print_fig(filename)
     all_axes = findobj(fig, 'Type', 'axes');
     for k = 1:length(all_axes)
         try
-            inset = get(all_axes(k), 'LooseInset');
-            % Increase top margin (4th component) from 0.075 to 0.22 to prevent header clipping
-            inset(4) = 0.22;
-            % Increase bottom margin (2nd component) from 0.11 to 0.14 for x-labels
-            inset(2) = 0.14;
-            set(all_axes(k), 'LooseInset', inset);
-            
             % Retrieve and scale title font size
             t_obj = get(all_axes(k), 'Title');
             if ~isempty(t_obj)
                 curr_size = get(t_obj, 'FontSize');
                 set(t_obj, 'FontSize', round(curr_size * 1.5));
             end
+            
+            % Skip LooseInset adjustment for live_animation to keep drawing size large
+            if ~isempty(strfind(filename, 'live_animation'))
+                continue;
+            end
+            
+            inset = get(all_axes(k), 'LooseInset');
+            % Increase top margin (4th component) from 0.075 to 0.22 to prevent header clipping
+            inset(4) = 0.22;
+            % Increase bottom margin (2nd component) from 0.11 to 0.14 for x-labels
+            inset(2) = 0.14;
+            set(all_axes(k), 'LooseInset', inset);
         catch
         end
     end

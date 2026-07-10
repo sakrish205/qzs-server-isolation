@@ -4,15 +4,16 @@ clear; close all;
 run('qzs_style_header.m');
 
 % 1. System Parameters (Loaded from parameters.m)
-% For a single isolator supporting 1/4 of a 100 kg rack:
-m = 25;                  % Payload mass (kg)
-kv = 49050;              % Vertical spring stiffness (N/m)
-ko = 49050;              % Oblique spring stiffness (N/m)
-L0 = 0.05;               % Free spring length (m)
-gamma_val = 2/3;         % QZS geometric parameter
-a = gamma_val * L0;      % Horizontal pivot distance (m)
-x_eq = L0 * sqrt(1 - gamma_val^2); % Static deflection at equilibrium (m)
-zeta = 0.05;             % Damping ratio (5%)
+run('parameters.m');
+m_iso = target_rack_mass / n_isolators; % Mass per corner isolator (kg)
+kv    = (m_iso * g_accel) / delta_static; % Vertical spring stiffness (N/m)
+ko    = alpha * kv;                        % Oblique spring stiffness (N/m)
+m     = m_iso;                             % Working mass variable
+L0    = 0.05;               % Free spring length (m)
+gamma_val = 2/3;            % QZS geometric parameter
+a = gamma_val * L0;         % Horizontal pivot distance (m)
+
+zeta = 0.05;                % Damping ratio (5%)
 c = 2 * zeta * sqrt(kv * m); % Damping coefficient (N-s/m)
 
 % 2. Ground Motion Definition (Synthetic IS 1893 seismic pulse)
@@ -30,8 +31,8 @@ yg_func = @(t) D0 * sin(omega1 * t) .* sin(omega2 * t);
 ag_func = @(t) -0.5 * D0 * ( (omega1 - omega2)^2 * cos((omega1 - omega2)*t) - (omega1 + omega2)^2 * cos((omega1 + omega2)*t) );
 
 % 3. Relative Restoring Force Function
-% f_res(u) = kv*u + 2*ko*(1 - L0 / sqrt((u + x_eq)^2 + a^2)) * (u + x_eq)
-f_res = @(u) kv * u + 2 * ko * (1 - L0 ./ sqrt((u + x_eq).^2 + a^2)) .* (u + x_eq);
+% f_res(u) = kv*u + 2*ko*(1 - L0 / sqrt(u^2 + a^2)) * u
+f_res = @(u) kv * u + 2 * ko * (1 - L0 ./ sqrt(u.^2 + a^2)) .* u;
 
 % 4. State-Space ODE Formulation
 % y = [u; u_dot]

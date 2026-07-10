@@ -44,7 +44,7 @@ s_range = linspace(0, n_s * h, 100);
 F_stack = zeros(size(s_range));
 for j = 1:length(s_range)
     s_single = s_range(j) / n_s;
-    F_single = ( (4*E) / (1-nu^2) ) * ( (t^4) / (K1*De^2) ) * (s_single/t) * ( (h/t - s_single/t)*(h/t - s_single/(2*t)) + 1 );
+    F_single = ((4*E)/(1-nu^2)) * (t^4/(K1*(De^2))) * (s_single/t) * ((h/t - s_single/t)*(h/t - s_single/(2*t)) + 1);
     F_stack(j) = n_p * F_single;
 end
 
@@ -57,8 +57,8 @@ text(delta_static_mm+0.2, 1000, sprintf('Operating Deflection (%dmm)', delta_sta
 plot([0, 20], [(rack_masses(m_idx)*g_accel)/4, (rack_masses(m_idx)*g_accel)/4], '--k', 'LineWidth', lw_thin, 'HandleVisibility', 'off');
 text(3, (rack_masses(m_idx)*g_accel)/4 + 100, sprintf('Static Load (%.1fkg/isolator)', rack_masses(m_idx)/4), 'Color', 'k', 'Interpreter', 'tex');
 
-title(['Experiment 8: Physical Realisation (1/4 Isolator for 100kg Rack)', char(10), ...
-    'Load-Deflection Curve for Belleville Washer Stack'], 'Interpreter', 'tex');
+title(sprintf('Experiment 8: Physical Realisation (%.0fkg per Isolator, %.0fkg Rack)', ...
+    target_rack_mass/n_isolators, target_rack_mass), 'Interpreter', 'tex');
 xlabel('Total Deflection (mm)', 'Interpreter', 'tex');
 ylabel('Vertical Force F_v (N)', 'Interpreter', 'tex');
 legend('Location', 'eastoutside');

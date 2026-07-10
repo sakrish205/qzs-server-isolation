@@ -9,7 +9,23 @@
 rack_masses = [50, 100, 150]; 
 
 % Target rack mass for single isolator analysis (kg) (e.g., in Exp 8)
-target_rack_mass = 100;
+target_rack_mass = 100;  % Heavy-duty 2U isolated shelf payload (m_iso = 100/4 = 25 kg per isolator)
+
+% =====================================================================
+% 2U RACK PHYSICAL DIMENSIONS (19-inch standard, EIA-310)
+% =====================================================================
+% 2U Rack Physical Dimensions
+rack_width_mm    = 482.6;  % Full rack width (mm)
+rack_usable_mm   = 450.0;  % Usable internal width (mm)
+rack_height_2U   = 88.9;   % 2U chassis height (mm)
+
+% Isolator base plate — matches rack footprint
+base_plate_mm    = 482.0;  % Base plate width and depth (mm)
+bolt_pattern_mm  = 465.0;  % Corner isolator bolt spacing (mm)
+n_isolators      = 4;      % One QZS isolator per corner
+
+% Per isolator mass (derived — do NOT hardcode separately)
+m_iso = target_rack_mass / n_isolators;
 
 % Static floor deflection limit (meters) - used to size vertical springs
 delta_static = 0.005; % 5 mm

@@ -7,17 +7,18 @@ run('qzs_style_header.m');
 pga_vals = linspace(0.1, 3.0, 15); % PGA values in g's
 peak_disp = zeros(size(pga_vals));
 
-m = 25;                  
-kv = 49050;              
-ko = 49050;              
+run('parameters.m');
+m = m_iso;
+kv = m_iso * g_accel / delta_static; % Vertical spring stiffness (N/m)
+ko = kv * alpha;                      % Oblique spring stiffness (N/m)
 L0 = 0.05;               
 gamma_val = 2/3;         
 a = gamma_val * L0;      
-x_eq = L0 * sqrt(1 - gamma_val^2); 
+ 
 zeta = 0.05;             
 c = 2 * zeta * sqrt(kv * m); 
 
-f_res = @(u) kv * u + 2 * ko * (1 - L0 ./ sqrt((u + x_eq).^2 + a^2)) .* (u + x_eq);
+f_res = @(u) kv * u + 2 * ko * (1 - L0 ./ sqrt(u.^2 + a^2)) .* u;
 
 fprintf('Running Snap-Through Simulation Sweep...\n');
 for k = 1:length(pga_vals)
@@ -77,12 +78,12 @@ subplot(2, 1, 1);
 plot(pga_vals, peak_disp, 'ro-', 'LineWidth', 2.0, 'MarkerFaceColor', 'r');
 hold on; grid on;
 plot([0.1, 3.0], [18.5, 18.5], 'k--', 'LineWidth', 1.5);
-text(0.5, 20.5, 'Stability Excursion Limit (18.5 mm)', 'Color', 'k', 'FontSize', 10);
+text(0.5, 19.5, 'Stability Excursion Limit (18.5 mm)', 'Color', 'k', 'FontSize', 18, 'FontWeight', 'bold');
 title('Figure 19a: Peak Rack Excursion vs. Base Acceleration (Snap-Through Threshold)', 'Interpreter', 'tex');
 xlabel('Base Acceleration PGA (g)', 'Interpreter', 'tex');
 ylabel('Peak Deflection (mm)', 'Interpreter', 'tex');
 xlim([0.1, 3.0]);
-ylim([0, 45]);
+ylim([0, 22]);
 
 % Subplot 2: Random PSD Attenuation
 subplot(2, 1, 2);
@@ -94,7 +95,7 @@ xlabel('Frequency (Hz)', 'Interpreter', 'tex');
 ylabel('Power Spectral Density (dB/Hz)', 'Interpreter', 'tex');
 legend('Location', 'northeast');
 xlim([0.1, 100]); % Start at 0.1 Hz to show QZS resonance at ~0.5 Hz
-ylim([-90, -10]);
+ylim([-85, 5]);   % Zoomed in from [-100, 0] to eliminate whitespace
 
 % Save result
 print_fig('results/qzs_exp12_failure_random.png');

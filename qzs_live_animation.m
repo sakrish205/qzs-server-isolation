@@ -4,13 +4,14 @@ clear; close all;
 run('qzs_style_header.m');
 
 % Simulation Parameters
-m = 25;                  % Mass (kg)
-kv = 49050;              % Vertical stiffness (N/m)
-ko = 49050;              % Oblique stiffness (N/m)
+run('parameters.m');
+m = m_iso;
+kv = m_iso * g_accel / delta_static; % Vertical stiffness (N/m)
+ko = kv * alpha;                      % Oblique stiffness (N/m)
 L0 = 0.05;               % Free spring length (m)
 gamma_val = 2/3;
 a = gamma_val * L0;
-x_eq = L0 * sqrt(1 - gamma_val^2);
+
 zeta = 0.05;
 c = 2 * zeta * sqrt(kv * m);
 

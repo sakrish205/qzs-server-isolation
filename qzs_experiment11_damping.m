@@ -4,9 +4,10 @@ clear; close all;
 run('qzs_style_header.m');
 
 % Parameters
-m = 25;                  % Mass (kg)
-kv = 49050;              % Vertical stiffness (N/m)
-fn = 0.5;                % QZS natural frequency (Hz)
+run('parameters.m');
+m = m_iso;
+kv = m_iso * g_accel / delta_static;  % Vertical stiffness (N/m)
+fn = (1/(2*pi)) * sqrt(g_accel / delta_static); % QZS natural frequency (Hz)
 wn = 2 * pi * fn;
 freq = linspace(0.01, 10, 1000); % Frequency sweep range (Hz)
 r = freq / fn;           % Frequency ratio

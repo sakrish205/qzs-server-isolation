@@ -1,16 +1,14 @@
 % qzs_experiment9_robustness.m
 % Generates Figure 17: Robustness Sensitivity Manifold (Heatmap)
 clear; close all;
-run('qzs_style_header.m');
+run('parameters.m');
+mass_arr   = linspace(0.8, 1.2, 21) * target_rack_mass; % ±20% sweep (kg)
+gamma_arr  = linspace(0.95, 1.05, 21) * (2/3);           % ±5% of QZS angle
 
-% 1. Sweeping Grid Parameters
-mass_arr = linspace(80, 120, 21);    % Total payload mass (kg), sweeps +-20% of 100 kg
-gamma_arr = linspace(0.95, 1.05, 21) * (2/3); % sweeps +-5% of QZS angle (2/3)
-
-% Constants
-g_accel = 9.81;          % renamed from g — avoids shadowing gamma alias
-kv = 49050;              % Vertical spring stiffness (N/m)
-ko = 49050;              % Oblique spring stiffness (N/m)
+% Constants (parametric)
+m_iso_target = target_rack_mass / n_isolators;
+kv = (m_iso_target * g_accel) / delta_static; % Vertical spring stiffness (N/m)
+ko = alpha * kv;                               % Oblique spring stiffness (N/m)
 L0 = 0.05;               % Free spring length (m)
 
 [G, M] = meshgrid(gamma_arr, mass_arr);
@@ -20,15 +18,14 @@ Fn = zeros(size(G));
 for i = 1:size(G, 1)
     for j = 1:size(G, 2)
         gamma_val = G(i, j);
-        m_iso = M(i, j) / 4; % 1/4 of total payload mass for single isolator
+        m_iso = M(i, j) / n_isolators; % Mass per corner isolator
         a = gamma_val * L0;
         
-        % Force balance equation under gravity: f_total(x_eq) - m_iso*g = 0
-        % f_total(x) = kv*x + 2*ko*(1 - L0 / sqrt(x^2 + a^2)) * x
-        f_eq = @(x) kv * x + 2 * ko * (1 - L0 / sqrt(x^2 + a^2)) * x - m_iso * g_accel;
+        % Force balance equation under gravity with vertical spring pre-compression (delta_static) included
+        f_eq = @(x) kv * (delta_static + x) + 2 * ko * (1 - L0 / sqrt(x^2 + a^2)) * x - m_iso * g_accel;
         
-        % Start guess: QZS static deflection
-        x0 = L0 * sqrt(1 - gamma_val^2);
+        % Start guess: equilibrium is near 0
+        x0 = 0.0;
         
         try
             x_eq = fzero(f_eq, x0);
@@ -52,13 +49,13 @@ figure;
 [C, h] = contourf(G / (2/3) * 100, M, Fn, 15, 'LineWidth', 1.0);
 colorbar;
 colormap('jet');
-clabel(C, h, 'FontSize', 12, 'FontName', 'Times New Roman');
+clabel(C, h, 'FontSize', 20, 'FontName', 'Times New Roman');
 
 % 1 Hz isolation boundary contour (improvement)
 hold on;
 [C1, h1] = contour(G / (2/3) * 100, M, Fn, [1 1], 'w-', 'LineWidth', 2.5);
-clabel(C1, h1, 'FontSize', 11, 'Color', 'w', 'FontWeight', 'bold');
-text(101.5, 82, '1 Hz boundary', 'Color', 'w', 'FontSize', 11, 'FontWeight', 'bold', 'Interpreter', 'tex');
+clabel(C1, h1, 'FontSize', 20, 'Color', 'w', 'FontWeight', 'bold');
+text(101.5, 82, '1 Hz boundary', 'Color', 'w', 'FontSize', 20, 'FontWeight', 'bold', 'Interpreter', 'tex');
 
 % Format Plot
 title('Figure 17: Natural Frequency (Hz) Robustness & Sensitivity Manifold', 'Interpreter', 'tex');
